@@ -32,7 +32,7 @@ const NavBar = () => {
 
         <div className='flex items-center justify-center gap-3'>
           <h2 className='hidden md:block'> Some text here</h2>
-           <RxHamburgerMenu  className='text-3xl cursor-pointer'  />
+           <RxHamburgerMenu  className='text-3xl cursor-pointer'  />    
         </div>
       </div>
 
