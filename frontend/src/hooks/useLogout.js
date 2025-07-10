@@ -1,8 +1,8 @@
-import { useContext } from "react"
+import { useState } from "react"
 import { useAuthContext } from "../context/AuthContext"
 
 const useLogout = () => {
-    const [loading, setLoading] = useContext(false)
+    const [loading, setLoading] = useState(false)
     const { setAuthUser } = useAuthContext()
 
     const logout = async () => {

@@ -9,9 +9,17 @@ const listingSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    address:{
+    city:{
         type:String,
         required:true
+    },
+    landmark:{
+        type:String,
+        required:true
+    },
+    pincode:{
+        type:String,
+        require:true
     },
     category:{
         type:String,
@@ -35,7 +43,12 @@ const listingSchema = new mongoose.Schema({
     },
     isBooked:{
         type:Boolean,
-        required:true
+        required:true,
+        default:false
+    },
+    host:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
     }
 
 },{timestamps:true})
