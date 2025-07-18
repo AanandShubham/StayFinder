@@ -11,7 +11,6 @@ const diskStorage = multer.diskStorage({
             const fn = bytes.toString('hex') + path.extname(file.originalname)
             cb(null,fn)
         })
-        // cb(null,file.originalname)
     }
 })
 
