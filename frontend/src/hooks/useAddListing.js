@@ -3,6 +3,7 @@ import toast from "react-hot-toast"
 
 const useAddListing = () => {
     const [loading, setLoading] = useState(false)
+    const {setListings} = useListingContext()
 
     const addListing = async (
         {
@@ -66,7 +67,7 @@ const useAddListing = () => {
             console.log("add Listing Response : ",data)
 
             // set listing data to listing context 
-
+            setListings(prev => [...prev,data]) 
 
         } catch (error) {
             toast.error(error.message)

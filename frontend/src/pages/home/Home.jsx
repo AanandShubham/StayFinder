@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from '../../components/NavBar'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { MdAddHomeWork } from "react-icons/md";
+import ListingCard from '../../components/ListingCard'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -10,6 +11,7 @@ const Home = () => {
       <NavBar />
 
       {/* create listing card and render all those with a  */}
+      <ListingCard /> 
 
       <div className='w-[90px] h-fit p-2  absolute bottom-3 cursor-pointer right-3'>
         <button

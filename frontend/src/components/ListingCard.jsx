@@ -2,7 +2,12 @@ import React from 'react'
 
 const ListingCard = () => {
   return (
-    <div>ListingCard</div>
+    <div> 
+      <div>
+        // Image 
+      </div>
+
+    </div>
   )
 }
 
