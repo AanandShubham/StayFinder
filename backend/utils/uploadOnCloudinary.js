@@ -12,7 +12,10 @@ const uploadOnCloudinary = async (filepath)=>{
     try {
         if(!filepath) return null
 
-        const uploadResult = await cloudinary.uploader.upload(filepath)
+        const uploadResult = await cloudinary.uploader.upload(filepath,{
+            resource_type: "auto",
+            folder: "StayFinder"
+        })
         fs.unlinkSync(filepath)
         return uploadResult.secure_url
 
