@@ -1,10 +1,12 @@
 import React from 'react'
+import ImageSwitcher from './ImageSwitcher'
 
 const ListingCard = () => {
   return (
     <div> 
+      <ImageSwitcher />
       <div>
-        // Image 
+          card details 
       </div>
 
     </div>
