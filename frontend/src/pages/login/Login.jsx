@@ -6,7 +6,8 @@ import useLogin from "../../hooks/useLogin";
 
 const Login = () => {
   const [showPassoword, setShowPassword] = useState(false)
-  const {loading,login} = useLogin
+  const { loading, login } = useLogin()
+
 
   const [loginData, setLoginData] = useState({
     username: '',
@@ -15,8 +16,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("State data before login : \n",loginData)
-    await login(loginData)
+    console.log("State data before login : \n", loginData)
+    const flag = await login(loginData)
+    if (!flag) {
+      console.log("user invalid ")
+
+    }
   }
 
 
@@ -38,7 +43,7 @@ const Login = () => {
             onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
           />
         </div>
-        <div className='flex flex-col gap-1 relative  rounded-xl'>
+        <div className='flex flex-col gap-1 relative rounded-xl'>
           <label className='pl-2 ' htmlFor="password">Password</label>
           <input
             className=' bg-slate-300 outline-none p-2 rounded-2xl'

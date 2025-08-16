@@ -15,7 +15,7 @@ const useLogin = () => {
 
         try {
 
-            const response = await fetch('/api/aut/login', {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -23,29 +23,35 @@ const useLogin = () => {
                 body: JSON.stringify({ username, password })
             })
 
-            const data = response.json()
+            const data = await response.json()
 
             if (data.error) {
                 throw new Error(data.error)
             }
 
-            // save user to localstorage 
-            localStorage.setItem('auth-user-data', JSON.stringify(data))
+            if (!data._id) {
+                toast.error("UserId and password not matched")
+                return false
+            } else {
+                // save user to localstorage 
+                localStorage.setItem('auth-user-data', JSON.stringify(data))
 
-            // set user to context
-            setAuthUser(data)
+                // set user to context
+                setAuthUser(data)
+                return true
+            }
 
         } catch (error) {
-
+            toast.error(error.message)
         } finally {
             setLoading(false)
         }
     }
 
-    return {loading,login}
+    return { loading, login }
 }
 
-export default useLogin 
+export default useLogin
 
 function handleInputError({ username, password }) {
     if (!username || !password) {

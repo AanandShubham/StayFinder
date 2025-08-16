@@ -11,7 +11,7 @@ const NavBar = () => {
   const navigate = useNavigate()
 
   return (
-    < div className=' flex flex-col items-center relative  justify-center gap-2'>
+    < div className=' flex flex-col items-center  justify-center gap-2'>
       <div className='w-[99vw] h-[10vh] mt-2 rounded-t-2xl flex justify-between md:items-center p-2  bg-sky-700'>
 
         <div className='w-[15%] text-black flex cursor-pointer items-center'>
@@ -47,7 +47,7 @@ const NavBar = () => {
         <IoSearch className='w-6 h-6 absolute top-2 right-2 hover:scale-110 cursor-pointer' />
       </div>
 
-      <div className={`w-[220px] h-[300px] p-3 flex flex-col gap-2 items-start bg-[#ccca3c] rounded-b-4xl rounded-t-xl absolute right-2 top-18 ${showPanel || 'hidden'}`}>
+      <div className={`w-[220px] h-[300px] p-3 flex flex-col gap-2 items-start bg-[#ccca3c] rounded-b-4xl rounded-t-xl absolute  z-10 right-2 top-18 ${showPanel || 'hidden'}`} >
         <button
           className='cursor-pointer'
           onClick={() => (navigate("/login"), setShowPanel(prev => !prev))}
@@ -57,7 +57,7 @@ const NavBar = () => {
 
         <button
           className='cursor-pointer'
-          onClick={() => (logout(), setShowPanel(prev => !prev))}
+          onClick={() => {logout(), setShowPanel(prev => !prev)}}
         >Logout</button>
       </div>
     </div>
