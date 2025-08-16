@@ -18,15 +18,15 @@ const AddListing = () => {
     city: '',
     landmark: '',
     pincode: '',
-    catogery: '',
+    category: '',
     rent: ''
   })
 
-  const { loading, AddListing } = useAddListing()
+  const { loading, addListing } = useAddListing()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await AddListing({ ...listingDetails, image1, image2, image3 })
+    await addListing({ ...listingDetails, image1, image2, image3 })
     toast.success("Listing Added Successfully !!")
     navigate(-1)
 
@@ -140,12 +140,12 @@ const AddListing = () => {
               <label
                 className='ml-2'
                 htmlFor="catogery"
-              >Select Catogery</label>
+              >Select Category</label>
               <select
-                id="catogery"
+                id="category"
                 className='min-w-[30vw] p-3  rounded-xl bg-neutral-600 outline-0'
                 value={listingDetails.catogery}
-                onChange={(e) => setListingDetails((prev) => ({ ...prev, catogery: e.target.value }))}
+                onChange={(e) => setListingDetails((prev) => ({ ...prev, category: e.target.value }))}
               >
                 <option value="">OPTIONS</option>
                 <option value="hotel">HOTEL</option>

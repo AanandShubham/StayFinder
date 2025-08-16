@@ -8,11 +8,11 @@ const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <div className='w-full min-h-screen h-fit bg-sky-950 relative'>
+    <div className='w-full min-h-screen h-screen bg-sky-950 relative'>
       <NavBar />
 
       {/* create listing card and render all those with a  */}
-      <div className='p-1 h-full flex flex-wrap justify-around overflow-auto gap-1 items-center'>
+      <div className='p-1 h-full flex flex-wrap justify-around overflow-auto gap-1 '>
         <ListingCard />
         <ListingCard />
         <ListingCard />
@@ -30,7 +30,7 @@ const Home = () => {
         <ListingCard />
       </div>
 
-      <div className='w-[90px] h-fit p-2  absolute bottom-3 cursor-pointer right-3'>
+      <div className='w-[90px] h-fit p-2  absolute top-180 cursor-pointer right-3'>
         <button
           onClick={() => navigate("/addListing")}
         ><MdAddHomeWork className='w-[90px] h-[50px] cursor-pointer hover:scale-105 text-sky-600 ' /></button>
