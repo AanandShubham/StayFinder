@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react"
 
-export const ListingContext = React.createContext()
+const ListingContext = React.createContext()
+
+
 
 export const useListingContext = () => {
     return useContext(ListingContext)
 }
+export default useListingContext
 
 export const ListingContextPovider = ({ children }) => {
     const [listings, setListings] = useState([])
