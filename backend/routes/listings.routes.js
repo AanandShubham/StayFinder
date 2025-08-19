@@ -1,7 +1,7 @@
 import express from 'express'
 import protectRoute from '../middleware/protectRoute.js'
 import upload from '../middleware/multer.js'
-import { addListings } from '../controllers/listings.controller.js'
+import { addListings , getAllListings} from '../controllers/listings.controller.js'
 
 const listingRouter = express.Router()
 
@@ -12,5 +12,7 @@ listingRouter.post('/add', protectRoute, upload.fields(
         { name: "image3", maxCount: 1 }
     ]
 ), addListings)
+
+listingRouter.get('/all',protectRoute,getAllListings)
 
 export default listingRouter 

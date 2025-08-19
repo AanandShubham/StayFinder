@@ -1,6 +1,6 @@
 import { useState } from "react"
 import toast from 'react-hot-toast'
-import { useAuthContext } from '../context/AuthContext'
+import useAuthContext from '../context/AuthContext'
 
 const useSignup = () => {
 
@@ -31,13 +31,17 @@ const useSignup = () => {
                 throw new Error(data.error)
             }
 
-            console.log("User response : ", data)
+            if (!data._id) {
+                toast.error("Somithing went wrong")
+            }else {
+                // console.log("User response : ", data)
 
-           //save user to local storage
-           localStorage.setItem('auth-user-data', JSON.stringify(data))
+                //save user to local storage
+                localStorage.setItem('auth-user-data', JSON.stringify(data))
 
-           //set user to context
-           setAuthUser(data)
+                //set user to context
+                setAuthUser(data)
+            }
 
         } catch (error) {
             console.log("Error : ", error)

@@ -51,3 +51,17 @@ export const addListings = async (req, res) => {
 
 }
 
+export const getAllListings = async (req, res) => {
+    try {
+      const listings = await Listing.find();
+      return res.status(200).json(listings);  // always an array
+    } catch (error) {
+        console.log('----------------------------------------------')
+        console.log("Error in Listing controller : getAllListings")
+        console.log('----------------------------------------------')
+        console.log('error : ', error)
+        console.log('----------------------------------------------')
+      return res.status(500).json({ error: "Server error" });
+    }
+  };
+

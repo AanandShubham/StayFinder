@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import Home from "./pages/home/Home"
 import Signup from "./pages/signup/Signup"
 import Login from "./pages/login/Login"
-import { useAuthContext } from './context/AuthContext'
+import useAuthContext from './context/AuthContext'
 import Test from "./Test"
 import AddListing from "./pages/listing/AddListing"
 
@@ -38,7 +38,11 @@ function App() {
         <Route
           path="/test"
           element={<Test />}
-        />
+
+        >
+          <Route path="reset"
+            element={<Test />} />
+        </Route>
       </Routes>
     </>
   )

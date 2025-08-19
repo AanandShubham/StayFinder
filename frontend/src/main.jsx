@@ -5,16 +5,16 @@ import { Toaster } from 'react-hot-toast'
 import './index.css'
 import App from './App.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
-import { ListingContextPovider } from './context/ListingContext.jsx'
+import { ListingContextProvider } from './context/ListingContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <AuthContextProvider>
-        <ListingContextPovider>
+      <ListingContextProvider>
+        <AuthContextProvider>
           <App />
-        </ListingContextPovider>
-      </AuthContextProvider>
+        </AuthContextProvider>
+      </ListingContextProvider>
     </BrowserRouter>
     <Toaster
       position="bottom-center"

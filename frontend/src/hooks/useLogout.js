@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useAuthContext } from "../context/AuthContext"
+import useAuthContext from "../context/AuthContext"
 
 const useLogout = () => {
     const [loading, setLoading] = useState(false)
@@ -20,7 +20,7 @@ const useLogout = () => {
             if (data.error) {
                 throw new Error(data.error)
             }
-            
+
             // remove user data from localstorage
             localStorage.removeItem('auth-user-data')
 
@@ -34,7 +34,7 @@ const useLogout = () => {
         }
     }
 
-    return {loading,logout}
+    return { loading, logout }
 }
 
 export default useLogout 

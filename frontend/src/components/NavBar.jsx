@@ -4,6 +4,7 @@ import { IoSearch } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, useNavigate } from 'react-router-dom'
 import useLogout from '../hooks/useLogout';
+import { BsArrowRight, BsChatRight } from 'react-icons/bs';
 
 const NavBar = () => {
   const { loading, logout } = useLogout()
@@ -33,7 +34,8 @@ const NavBar = () => {
         </div>
 
         <div className='flex items-center justify-center gap-3'>
-          <h2 className='hidden md:block'> Some text here</h2>
+          <h2 className='hidden md:block'> Profile </h2>
+          <BsArrowRight className='text-stone-200' />
           <RxHamburgerMenu onClick={() => setShowPanel(prev => !prev)} className='text-3xl hover:scale-110 cursor-pointer' />
         </div>
       </div>
